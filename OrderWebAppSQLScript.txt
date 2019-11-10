@@ -1,0 +1,31 @@
+DROP TABLE IF EXISTS products
+DROP TABLE IF EXISTS customers
+
+CREATE TABLE `products` (
+  	`id` int(11) NOT NULL AUTO_INCREMENT,
+  	`prodName` varchar(500) NOT NULL,
+  	`prodPrice` float NOT NULL,
+  	`prodQuantity` int(11) NOT NULL, 
+  	CONSTRAINT products_id PRIMARY KEY (id)
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `customers` (
+  	`id` int(11) NOT NULL AUTO_INCREMENT,
+  	`firstName` varchar(500) NOT NULL,
+  	`lastName` varchar(500) NOT NULL,
+  	`address` varchar(800) NOT NULL, 
+  	CONSTRAINT customers_id PRIMARY KEY (id)
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO products (prodName, prodPrice, prodQuantity)
+	VALUES 	(tablet, 115.50, 45),
+		(television, 249.99, 35),
+		(laptop, 1265.87, 22),
+		(monitor, 156.99, 16);
+
+INSERT INTO customers (firstName, lastName, address)
+	VALUES	(David, Blonn, 170 Knollwood),
+		(Oscar, Blonn, 2nd Bedroom),
+		(Chloe, Blonn, Track Meet),
+		(Roman, Blonn, Wrestling Mat);
+		

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateProductsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateProductsLabel_prodName}" for="prodName" />
+                    <h:inputText id="prodName" value="#{productsController.selected.prodName}" title="#{bundle.CreateProductsTitle_prodName}" />
+                    <h:outputLabel value="#{bundle.CreateProductsLabel_prodPrice}" for="prodPrice" />
+                    <h:inputText id="prodPrice" value="#{productsController.selected.prodPrice}" title="#{bundle.CreateProductsTitle_prodPrice}" />
+                    <h:outputLabel value="#{bundle.CreateProductsLabel_prodQuantity}" for="prodQuantity" />
+                    <h:inputText id="prodQuantity" value="#{productsController.selected.prodQuantity}" title="#{bundle.CreateProductsTitle_prodQuantity}" />
+                    <h:outputLabel value="#{bundle.CreateProductsLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{productsController.selected.id}" title="#{bundle.CreateProductsTitle_id}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{productsController.create}" value="#{bundle.CreateProductsSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{productsController.prepareList}" value="#{bundle.CreateProductsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateProductsIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
